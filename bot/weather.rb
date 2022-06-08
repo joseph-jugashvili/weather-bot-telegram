@@ -14,7 +14,7 @@ class Weather
   attr_accessor :lat, :lon, :time
 
   def weather_message
-    "#{date} UTC \nToday in your location #{select_cloudiness(clouds)} \n🌡Temperature #{temperature}°C, feels like #{feeling_temp}°C \n💧Humidity #{humidity}% \n🌬Wind speed #{wind} m/s \n⏱Atmospheric pressure is #{pressure} hPa \n#{select_raininess(rain)}"
+    "#{date} \nThere is #{select_cloudiness(clouds)} in your location today \n🌡Temperature #{temperature}°C, feels like #{feeling_temp}°C \n💧Humidity #{humidity}% \n🌬Wind speed #{wind} m/s \n⏱Atmospheric pressure is #{pressure} hPa \n#{select_raininess(rain)}"
   end
 
   def select_cloudiness(clouds)

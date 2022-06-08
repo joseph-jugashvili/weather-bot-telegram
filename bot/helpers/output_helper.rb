@@ -1,6 +1,6 @@
 module OutputHelper
   def date
-    date = Time.new
+    date = Time.new.utc
     date
   end
 
@@ -43,11 +43,11 @@ module OutputHelper
 
   def cloudiness_variations
     {
-      0..10 => 'clear sky☀️',
-      11..25 => 'few clouds observed🌤',
-      26..50 => 'scattered clouds observed⛅️',
-      51..84 => 'cloudy🌥',
-      85..100 => 'mainly cloudy☁️'
+      0..20 => '☀️Clear sky',
+      21..40 => '🌤Few clouds observed',
+      41..79 => '⛅️Scattered clouds observed',
+      80..90 => '🌥Cloudy',
+      91..100 => '☁️Mainly cloudy'
     }
   end
 end
