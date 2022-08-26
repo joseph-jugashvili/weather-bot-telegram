@@ -47,6 +47,10 @@ class Bot
     Telegram::Bot::Client.run(TOKEN) { |bot| return bot }
   end
 
+  def city_name(text)
+    text.gsub('/weather', '').strip.tr(' ', '+')
+  end
+
   def city_weather(message)
     return unless message.text.include? '/weather' 
 
@@ -67,8 +71,4 @@ class Bot
         bot.api.send_message(chat_id: message.chat.id, text: "I don't understand.😕\nPlease try the /start to find out how to communicate with me")
       end 
   end  
-
-  def city_name(text)
-    text.gsub('/weather', '').strip.tr(' ', '+')
-  end
 end

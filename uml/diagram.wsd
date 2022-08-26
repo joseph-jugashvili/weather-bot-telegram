@@ -1,0 +1,49 @@
+@startuml Bot
+skinparam ClassAttributeIconSize 0
+class Weather {
+  time
+  lat 
+  lon 
+  +weather_message()
+  +select_cloudiness()
+  +select_raininess()
+  -weather_url()
+  -api_response()
+}
+
+class WeatherCity{
+  city 
+  +city_message()
+  -weather_city_url()
+  -api_response()
+}
+
+class Bot{
+  run()
+  bot()
+  city_name()
+  city_weather()
+  location_weather()
+  input_error()
+}
+
+abstract class OutputHelper{
+  date()
+  temperature()
+  humidity()
+  clouds()
+  wind()
+  pressure()
+  rain()
+  feeling_temp()
+  raininess_variations()
+  cloudiness_variations()
+}
+
+Weather <|-- WeatherCity
+OutputHelper <|-- Weather
+OutputHelper <|-- WeatherCity
+Bot o-- Weather
+Bot o-- WeatherCity 
+@enduml
+
